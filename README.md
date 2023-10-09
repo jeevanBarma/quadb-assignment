@@ -68,3 +68,28 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+{/\*
+useEffect(() => {
+if (!id) {
+console.error("jobId is undefined");
+return;
+}
+
+    const apiUrl = `https://www.themuse.com/api/public/jobs/${id}?api_key=${apiKey}`;
+
+    fetch(apiUrl)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`API request failed with status ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setJob(data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+
+}, [id]);
+\*/}
